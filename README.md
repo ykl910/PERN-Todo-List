@@ -13,14 +13,18 @@ This repository contains three parts:
 Prerequisites:
 - Node.js (16+ recommended)
 - npm or yarn
-- Docker (optional, if you want an easy local Postgres)
+- PostgreSQL (local installation or a managed service)
 
-1) Start Postgres (recommended: Docker)
+1) Start Postgres or ensure a Postgres instance is available
+
+If you have Postgres installed locally, create the development database (example):
 
 ```bash
-# run a local Postgres for development
-docker run --name perntodo-postgres -e POSTGRES_PASSWORD=example -e POSTGRES_DB=perntodo -p 5432:5432 -d postgres:15
+# create database named `perntodo` using the default postgres user
+psql -h localhost -U postgres -c "CREATE DATABASE perntodo;"
 ```
+
+If you're using a managed Postgres instance, make sure to set the server's `DATABASE_URL` or update the connection in `server` accordingly.
 
 2) Run the backend
 
