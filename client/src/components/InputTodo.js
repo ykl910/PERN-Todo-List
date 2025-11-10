@@ -27,7 +27,7 @@ const InputTodo = () => {
 				value={(description)}
 				onChange={(e => setDescription(e.target.value))}
 				></input>
-				<button className="btn btn-success">Add</button>
+				<button className="btn btn-success ml-4">Add</button>
 			</form>
 		</>
 	

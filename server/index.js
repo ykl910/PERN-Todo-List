@@ -55,7 +55,7 @@ app.get('/todos/:id', async(req, res) => {
 
 
 // update a todo
-app.put('/todos/:id', async(req, res) => {
+app.put('/todos/description/:id', async(req, res) => {
 	try {
 		const { id } = req.params;
 		const { description } = req.body;
@@ -69,6 +69,35 @@ app.put('/todos/:id', async(req, res) => {
 	}
 })
 
+// update priority
+app.put('/todos/priority/:id', async(req, res) => {
+	try {
+		const { id } = req.params;
+		const { priority } = req.body;
+		const todo = await pool.query(
+			"UPDATE TODO SET priority = $1 WHERE todo_id = $2",
+			[priority, id]
+		);
+		res.json("todo prior updated");
+	} catch (err) {
+		console.error(err.message);
+	}
+})
+
+// update due date
+app.put('/todos/dueDate/:id', async(req, res)=>{
+	try {
+		const { id } = req.params;
+		const { dueDate } = req.body;
+		const todo = await pool.query(
+			"UPDATE TODO SET due_date = $1 WHERE todo_id = $2",
+			[dueDate, id]
+		);
+		res.json("todo due date updated");
+	} catch (err) {
+		console.error(err.message);
+	}
+})
 
 // delete a todo
 app.delete('/todos/:id', async(req, res) => {

@@ -13,6 +13,13 @@
   }
 }
 
+.my-datepicker {
+  text-align: center;
+  height: 30px;
+  width: 120px;
+  padding: 2px 6px;
+}
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;

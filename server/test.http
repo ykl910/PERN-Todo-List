@@ -13,11 +13,19 @@ GET http://localhost:5001/todos HTTP/1.1
 GET http://localhost:5001/todos/2 HTTP/1.1
 
 ### put
-PUT http://localhost:5001/todos/1 HTTP/1.1
+PUT http://localhost:5001/todos/description/1 HTTP/1.1
 content-type: application/json
 
 {
     "description": "learn react today"
+}
+
+### put
+PUT http://localhost:5001/todos/priority/13 HTTP/1.1
+content-type: application/json
+
+{
+    "priority": "unknown"
 }
 
 ### delete one
